@@ -72,8 +72,43 @@ class TreeNode {
  *     }
  * }
  */
+
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
 public class ValidateBST {
-    public boolean isValidBST(TreeNode root) {
+
+    TreeNode prev_node;
+    public boolean isValidBST_Recursive(TreeNode root) {
+        return inorder(root);
+    }
+    
+    private boolean inorder(TreeNode root){
+        if (root == null )return true;
+        
+//         left subtree
+//         if left subtree is not valid BST retunr false
+        if( inorder(root.left) == false) return false;
+//         check if root is less than or not if it is less than return false
+        if(prev_node != null && root.val <= prev_node.val ) return false;
+        
+        prev_node = root;
+//         right subtree
+        return inorder(root.right);
+        
+    }
+    public boolean isValidBST_Iterative_InorderSolution(TreeNode root) {
         Stack<TreeNode> stack = new Stack();
         TreeNode prev_node=null;
         
