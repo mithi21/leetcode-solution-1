@@ -88,6 +88,19 @@ class TreeNode {
 }
 
 public class ValidateBST {
+//     TreeNode prev_node;
+//     public boolean isValidBST(TreeNode root) {
+//         return helper(root,null,null);
+//     }
+
+//    private boolean helper(TreeNode root, Integer min, Integer max){
+// //         base
+//        if(root ==null) return true;
+//        // breaching condition
+//        if( (max != null && root.val >= max) || ( min != null && root.val <= min )) return false;
+//        //  logic
+//        return helper(root.left,min, root.val) && helper(root.right,root.val, max);
+//    }
 
     TreeNode prev_node;
     public boolean isValidBST_Recursive(TreeNode root) {
