@@ -74,4 +74,39 @@ public class FloodFill {
         
         return image;
     }
+    
 }
+
+/*
+
+        // DFS Solution
+
+        
+        class Solution {
+        int color;
+        int dirs[][] = {{0,1},{0,-1},{1,0},{-1,0}};
+        public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+            if( image == null || image.length == 0 || image[sr][sc] ==  newColor) return image;
+            color = image[sr][sc];
+            // image[sr][sc] = newColor;
+            dfs(image, sr,sc, newColor);
+            return image;
+            
+            
+        }
+        
+        private void dfs(int[][] image, int sr, int sc, int newColor){
+            
+            
+            if( sr >=0 && sr < image.length && sc >=0 && sc< image[0].length && image[sr][sc] == color){
+                image[sr][sc] = newColor;
+                
+                for(int [] dir : dirs){
+                    dfs(image, sr+ dir[0] , sc+dir[1],newColor);
+                }
+            }
+            
+        }
+    }
+
+*/
