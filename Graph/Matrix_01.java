@@ -88,3 +88,73 @@ class Matrix_01 {
         return matrix;
     }
 }
+
+
+/*
+
+DP solution
+    Go through the matrix first time and update value at each occurence of 1 to min(ret[i-1][j]+1 , ret[i][j-1]+1). After this step we will have nearest 0s from submatrix starting from (0,0) to (i,j)
+    
+    Now go through the matrix again, this time update value at each occurence of 1 to min(ret[i][j], ret[i+1][j]+1, ret[i][j+1]+1). This step will give us nearest 0s from submatrix starting from (m,n) to (i,j) and see if that value is less than what we had previously calculated.
+Eventually for each grid with value 1, we have the minimum of steps taken from top-left submatrix and bottom-right submatrix.
+
+*/
+
+
+class Solution {
+    public int[][] updateMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length ==  0 ) return null;
+        int[][] ret = new int[matrix.length][matrix[0].length];
+//         top left
+        int[][] dirs={{-1,0},{0,-1}};
+        
+//          first iteration
+        int r_c = matrix.length;
+        int c_c = matrix[0].length;
+        for(int i =0; i < r_c; i++){
+            for(int j = 0; j < c_c; j++){
+//                 if zero do nothing
+                if(matrix[i][j] == 0 ){
+                    ret[i][j] = 0;
+                }else{
+//                     if 1 check for the top and left value and then update accordingly
+                    ret[i][j] =   r_c * c_c;
+                    for(int []dir : dirs){
+                        int r = dir[0]+ i;
+                        int c = dir[1] + j;
+                        if( r >= 0   && c >=0 ){
+                            ret[i][j] = Math.min(ret[i][j], ret[r][c]+1); 
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        // second iteration
+        // right bottom
+        dirs =  new int[][]{{1,0},{0,1}};
+        for(int i =r_c-1; i  >=0; i--){
+            for(int j = c_c-1; j >=0 ; j--){
+//                 if zero do nothing
+                if(matrix[i][j] == 0 ){
+                    ret[i][j] = 0;
+                }else{
+//                     if 1 check for the right and bottom value and then update accordingly
+                    for(int []dir : dirs){
+                        int r = dir[0]+ i;
+                        int c = dir[1] + j;
+                        if(  r< r_c  && c < c_c ){
+                            ret[i][j] = Math.min(ret[i][j], ret[r][c]+1 ); 
+                        }
+                    }
+                }
+                
+                
+            }
+        }
+        return ret;
+        
+        
+    }
+}
