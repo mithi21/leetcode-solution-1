@@ -17,24 +17,6 @@ public class Tree {
     public Node get_root(){
         return this.root;
     }
-
-    // public static HashSet<Node> pre_order_recursive(Node root){
-    //     HashSet<Node> visited = new HashSet<>();
-        
-    //     return recursive_helper(root, visited);
-
-    // }
-    // public static HashSet<Node> recursive_helper(Node root,HashSet<Node> visited){
-        
-    //     if (root != null){
-    //         visited.add(root);
-    //         recursive_helper(root.get_left_child(), visited);
-    //         recursive_helper(root.get_right_child(), visited);
-    //     }
-    //     return visited;
-        
-    // }
-
     
     public static HashSet<Node> pre_Order_Traversal(_IterativeNode root){
         return new HashSet<>();
