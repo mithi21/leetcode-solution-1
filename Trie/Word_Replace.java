@@ -149,3 +149,35 @@ public class Word_Replace {
 }
 
 */
+
+/*
+
+prefix hash
+
+
+ public String replaceWords(List<String> dict, String sentence) {
+        Set< String> rootset= new HashSet();
+        
+        for(String w :  dict){
+            rootset.add(w);
+        }
+        
+        String words [] =  sentence.split("\\s+");
+        StringBuilder res = new StringBuilder();
+        for(String sw : words){
+            String prefix = "";
+            for(int i = 0;i< sw.length();i++){
+                prefix += sw.charAt(i);
+//                 if prefix in the set then break and add that in resultant string
+                if(rootset.contains(prefix)){
+                    break;
+                }
+            }
+            if(res.length() > 0) res.append(" ");
+            res.append(prefix);
+        }
+        return res.toString();
+    }
+
+
+    */
