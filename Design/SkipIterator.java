@@ -74,7 +74,8 @@ public class SkipIterator implements Iterator<Integer> {
 		itr.next(); // returns -1
 		itr.next(); // returns 10
 		itr.hasNext(); // false
-		itr.next(); // error
+        itr.next(); // error
+        itr.next(); // error
 	}
 
  
