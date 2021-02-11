@@ -95,7 +95,7 @@ public class RemoveLastNthNode {
         return len;
     }
     
-    /*
+    /**
     /**
 
 Approach is to find the leangth of linkedlist by travering the list
@@ -156,6 +156,6 @@ class Solution {
 }
 
     
-    */
+    **/
     
 }
