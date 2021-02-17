@@ -44,7 +44,7 @@ public class RottenOranges {
                 
             }
         }
-        
+        // if no fresh Oranges then return zero
         if (fresh_count == 0 ) return 0;
         
 //         process the queue
